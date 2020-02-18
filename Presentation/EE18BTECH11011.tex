@@ -1,0 +1,182 @@
+\documentclass{beamer}
+
+\mode<presentation>
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{xcolor}
+%\usepackage{advdate}
+\usepackage{adjustbox}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+\usetheme{CambridgeUS}
+\usecolortheme{rose}
+
+\setbeamertemplate{navigation symbols}{}
+
+
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+
+\numberwithin{equation}{section}
+
+\title{EE2227 Control Systems \\ Presentation-1}
+\author{Deep\ - EE18BTECH11011 \\ IIT Hyderabad.}
+
+\date{\ 12-02-2020} 
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{GATE EE2019.pdf Q-31}
+\begin{description}[font=$\bullet$~\normalfont\scshape\color{blue!50!black}]
+Consider a state-variable model of a system
+$$\left[ \begin{array}{c} \dot{x}_1 \\ \dot{x}_2 
+\end{array} 
+\right] = 
+\begin{bmatrix} 0 & 1 \\ -$\alpha$ & -2$\beta$ 
+\end{bmatrix} 
+\left[ 
+\begin{array}{c} x_1 \\ x_2 
+\end{array}
+\right]
++
+\left[
+\begin{array}{c} b_1 \\ b_2 
+\end{array}
+\right]
+r$$
+$$y =  \begin{bmatrix} 1 & 0 \end{bmatrix}\left[ 
+\begin{array}{c} x_1 \\ x_2 
+\end{array}
+\right]$$
+where y is the output, and r is the input. The damping ratio $\zeta$ and the undamped natural
+frequency $\omega_n$ (rad/sec) of the system are given by:
+\begin{tabular}{cc}
+    (A) \zeta = \dfrac{\beta}{\sqrt{\alpha}} , \omega_n = \sqrt{\alpha} &  \\
+    (B) \zeta = \sqrt{\alpha} , \omega_n = \dfrac{\beta}{\sqrt{\alpha}} &  \\
+    (C) \zeta = \dfrac{\alpha}{\sqrt{\beta}} , \omega_n = \sqrt{\beta}  &  \\
+    (D) \zeta = \sqrt{\beta} , \omega_n = \sqrt{\alpha}  &  \\
+    
+    \end{tabular}
+
+\end{description}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution - Transformation of State Equations to a Single Differential Equation}
+\begin{description}[font=$\bullet$~\normalfont\scshape\color{red!50!black}]
+The state equations $\dot{x}$ =Ax+Br for a linear second-order system with a single input are a pair of coupled first-order differential equations in the two state variables:
+\left[ \begin{array}{c} \dot{x}_1 \\ \dot{x}_2 
+\end{array} 
+\right] = 
+\begin{bmatrix} a_1_1 & a_1_2 \\ a_2_1 & a_2_2 
+\end{bmatrix} 
+\left[ 
+\begin{array}{c} x_1 \\ x_2 
+\end{array}
+\right]
++
+\left[
+\begin{array}{c} b_1 \\ b_2 
+\end{array}
+\right]
+r.
+\end{description}
+\begin{description}
+Or
+\end{description}
+\begin{description}
+$$\dfrac{dx_1}{dt}= a_1_1x_1 + a_1_2x_2 + b_1r.$$
+\end{description}
+\begin{description}
+$$\dfrac{dx_2}{dt}= a_2_1x_1 + a_2_2x_2 + b_2r.$$
+\end{description}
+\begin{description}
+The state-space system representation may be transformed into a single differential equation ineither of the two state-variables.
+\end{description}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Transformation of State Equations to a Single Differential Equation}
+\begin{description}[font=$\bullet$~\normalfont\scshape\color{red!50!black}]
+ Taking the Laplace transform of the state equations
+$$(sI - A)X(s)  =  BR(s)$$
+\end{description}
+\begin{description}
+$$X(s)  =  (sI - A)^-^1BR(s)$$
+\end{description}
+\begin{description}
+$$X(s)  = \frac{1}{det[sI - A]}\begin{bmatrix} s - a_2_2 & a_1_2 \\ a_2_1 & s - a_1_1 
+\end{bmatrix}\left[\begin{array}{c} b_1 \\ b_2\end{array}\right]R(s) $$
+\end{description}
+\begin{description}
+$$det [sI - A]X(s) = \begin{bmatrix} s - a_2_2 & a_1_2 \\ a_2_1 & s - a_1_1 
+\end{bmatrix}\left[\begin{array}{c} b_1 \\ b_2\end{array}\right]R(s)$$
+\end{description}
+\end{frame}
+
+\begin{frame}
+\frametitle{Transformation of State Equations to a Single Differential Equation}
+\begin{description}[font=$\bullet$~\normalfont\scshape\color{red!50!black}]
+from this we can write
+\end{description}
+\begin{description}
+$$\dfrac{d^2x_1}{dt^2} - (a_1_1 + a_2_2)\dfrac{dx_1}{dt} + (a_1_1a_2_2 - a_1_2a_2_1)x_1 = b_1\dfrac{du}{dt} + (a_1_2b_2 - a_2_2b_1)r.$$
+and
+$$\dfrac{d^2x_2}{dt^2} - (a_1_1 + a_2_2)\dfrac{dx_2}{dt} + (a_1_1a_2_2 - a_1_2a_2_1)x_2 = b_2\dfrac{du}{dt} + (a_2_1b_1 - a_1_1b_2)r.$$
+\end{description}
+
+\begin{description}
+which can be written in terms of the two parameters $\omega_n$ and $\zeta$ as follows: 
+\end{description}
+\end{frame}
+
+\begin{frame}
+\frametitle{Transformation of State Equations to a Single Differential Equation}
+\begin{description}[font=$\bullet$~\normalfont\scshape\color{red!50!black}]
+$$\dfrac{d^2x_1}{dt^2} + 2\zeta\omega_n\dfrac{dx_1}{dt} + \omega_n^2x_1 = b_1\dfrac{du}{dt} + (a_1_2b_2 - a_2_2b_1)r.$$
+and
+$$\dfrac{d^2x_2}{dt^2} + 2\zeta\omega_n\dfrac{dx_2}{dt} + \omega_n^2x_1 = b_2\dfrac{du}{dt} + (a_2_1b_1 - a_1_1b_2)r.$$
+\end{description}
+
+\begin{description}
+where $\zeta$ is the system(dimensionless) damping ratio and the undamped natural frequency with units of radian/second is \omega_n.
+\end{description}
+\begin{description}
+By comparing above equations we get that:
+$$\omega_n = \sqrt{a_1_1a_2_2 - a_1_2a_2_1}$$
+and
+$$\zeta = -\dfrac{(a_1_1+a_2_2)}{\omega_n} = \dfrac{-(a_1_1 + a_2_2)}{2\sqrt{a_1_1a_2_2 - a_1_2a_2_1}}$$
+\end{description}
+\end{frame}
+\begin{frame}
+\frametitle{Transformation of State Equations to a Single Differential Equation}
+\begin{description}[font=$\bullet$~\normalfont\scshape\color{red!50!black}]
+Now putting the give values in the variables we get,
+\begin{tabular}{cc}
+     & \\
+    \zeta = \dfrac{-(0 - 2\beta)}{2\sqrt{0(-2\beta) - 1(-\alpha)}} = \dfrac{\beta}{\sqrt{\alpha}} &  \\
+     & \\
+    \omega_n = \sqrt{0(-2\beta) - 1(-\alpha)} = \sqrt{\alpha} & \\
+     & \\
+    So the answer is Option(A).
+\end{tabular}
+\end{description}
+\end{frame}
+\end{document}
