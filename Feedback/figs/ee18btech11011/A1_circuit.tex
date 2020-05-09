@@ -1,0 +1,19 @@
+\begin{circuitikz}
+\draw
+  (0,0) to [short, f>=$I_i$, o-*] (2,0) to [R = $R_{s}$] (2,-6) node[ground]{};
+\draw
+  (2,0) to [short, -*] (4,0) to [R = $R_{F}$] (4,-6) node[ground]{};
+\draw
+  (4,0) to [short, -*] (6,0) to [R = $R_{i d}$] (6,-6) node[ground]{};
+\draw
+  (6,0) to [short, -o] (8,0);
+\draw
+  (0.2,-5.4) -- (0.2,-0.6) to [short ,i_>=$ $] (1,-0.6);
+\draw
+  node at (8,-0.6){$+$}
+  node at (8,-5.4){$-$}
+  node at (8,-3){$V_{i d}$}
+  node at (0.2,-5.8){$R_{i}$};
+  \end{circuitikz}
+
+

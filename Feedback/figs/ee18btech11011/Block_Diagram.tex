@@ -1,0 +1,18 @@
+\tikzstyle{input} = [coordinate]
+\tikzstyle{output} = [coordinate]
+\tikzstyle{block} = [draw, rectangle]
+\tikzstyle{sum} = [draw, circle]
+
+\begin{tikzpicture}[auto, node distance=2cm,>=latex']
+    \node [input, name=input] {$I_{s}$};
+    \node [sum, right of=input] (sum) {};
+    \node [block, right of=sum] (controller) {$G$};
+    \node [output, right of=controller] (output) {};
+    \node [block, below of=controller] (feedback) {$H$};
+    \draw [draw,->] (input) -- node {$I_{s}$} (sum);
+    \draw [->] (sum) -- node {$I_{i}$} (controller);
+    \draw [->] (controller) -- node [name=y] {$I_{o}$}(output);
+    \draw [->] (y) |- (feedback);
+    \draw [->] (feedback) -| node[pos=0.95]{$-$}  node [near end] {$I_{f}$} (sum);
+    \draw [->] (feedback) -| node[pos=1.15]{$+$}  node [near end] {} (sum);
+\end{tikzpicture}

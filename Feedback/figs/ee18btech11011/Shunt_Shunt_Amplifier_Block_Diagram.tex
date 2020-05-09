@@ -1,0 +1,20 @@
+\begin{circuitikz}[american]
+\usetikzlibrary{positioning, fit, calc}
+\draw (0,0) to[I = $I_{s}$] (0,2) -- (2,2) to[R=$R_{s}$,*-*] (2,0){}
+(2,2) to [short, -o] (2.5,2) -- (5,2) {}
+(7,1)node[draw,minimum width=4cm,minimum height=4cm] (load) {Gain Amplifier}{}
+(7,-4)node[draw,minimum width=4cm,minimum height=4cm] (load) {Feedback Network}{}
+(0,0) to [short, -o] (2.5,0) -- (5,0)
+(13,0) to [R=$R_{L}$,*-*] (13,2) to [short, -o] (12,2) to[short, i = $I_{o}$] (9,2)
+(3,0) to [short, *-] (3,-5) -- (5,-5){}
+(14,2) to [short, o-] (13,2){}
+(4,2) to [short, *-] (4,-3) -- (5,-3){}
+(10,2) to [short, *-] (10,-3) -- (9,-3){}
+(9,0) to [short, -*] (11,0) to [short, -o] (12,0){}
+(9,-5) -- (11,-5) -- (11,0) to [short, -o] (14,0){}
+;
+\draw
+node at (14,0.2){$-$}
+node at (14,1.8){$+$}
+node at (14.3,1){$V_{o}$};
+\end{circuitikz}
