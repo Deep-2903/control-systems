@@ -2,6 +2,13 @@
 \numberwithin{equation}{enumi}
 
 \item The circuit in Fig. \ref{fig:ee18btech11011_original_circuit} utilizes a voltage amplifier with gain $\mu$ in a shunt-shunt feedback topology with the feedback network composed of resistor $R_F$, to use the feedback equations convert the signal source to its Norton Representation.Also draw the H-Circuit and G-Circuit. 
+\begin{enumerate}
+\item If the loop gain is very large, what approximate closed-loop voltage gain $V_{o}/V_{s}$ is realized?Also if $R_{s}$ = 1 k$\ohm$ , give the value of $R_{F}$ that will result in $V_{o}/V_{s}$ \simeq -10 V/V.
+
+\item If the amplifier $\mu$ has a dc gain of $10^3$ V/V, an input resistance $R_{i d}$ = 100 k$\ohm$ , and an output resistance $r_{o}$ = 1 k$\ohm$ , find the actual $V_{o}/V_{s}$ realized. Also find $R_{i n}$ and $R_{o u t}$.
+
+\item If the amplifier $\mu$ has an upper 3-dB frequency of 1 kHz and a uniform -20-dB/decade gain rolloff, what is the 3-dB frequency of the gain \mid$V_{o}/V_{s}$\mid.
+\end{enumerate}
 \renewcommand{\thefigure}{\theenumi.\arabic{figure}}
 %
 \begin{figure}[!ht]
@@ -96,7 +103,7 @@ R_{i n} &= \frac{1}{\frac{1}{R_{i f}} - \frac{1}{R_{s}}} , R_{o u t} = \frac{1}{
 \label{fig:Block Diagram}
 \end{figure}
 
-\item If the loop gain is very large, what approximate closed-loop voltage gain $V_o$/$V_s$ is realized?Also if $R_s$ = 1 k$\ohm$ , give the value of $R_F$ that will result in $V_o$/$V_s$ \simeq -10 V/V.
+\item If the loop gain is very large, what approximate closed-loop voltage gain $V_{o}/V_{s}$ is realized?Also if $R_{s}$ = 1 k$\ohm$ , give the value of $R_{F}$ that will result in $V_{o}/V_{s}$ \simeq -10 V/V.
 
 \solution If the loop gain GH is very large then the closed loop gain is,
 %
@@ -120,9 +127,9 @@ T &\approx -R_{F}
 \end{align}
 %
 \\
-\item If the amplifier $\mu$ has a dc gain of $10^3$ V/V, an input resistance $R_{i d}$ = 100 k$\ohm$ , and an output resistance $r_o$ = 1 k$\ohm$ , find the actual $V_o$/$V_s$ realized. Also find $R_i_n$ and $R_o_u_t$.
+\item If the amplifier $\mu$ has a dc gain of $10^3$ V/V, an input resistance $R_{i d}$ = 100 k$\ohm$ , and an output resistance $r_{o}$ = 1 k$\ohm$ , find the actual $V_{o}/V_{s}$ realized. Also find $R_i_n$ and $R_{o u t}$.
 
-\solution To find $V_o$/$V_s$, $R_i_n$ and $R_o_u_t$ first find the other necessary parameters.
+\solution To find $V_{o}/V_{s]$, $R_{i n}$ and $R_{o u t}$ first find the other necessary parameters.
 
 From Fig. \ref{fig:ee18btech11011_A1_circuit} we get,
 %
@@ -185,7 +192,7 @@ R_{i n} &= \frac{1}{\frac{1}{R_{i f}} - \frac{1}{R_{s}}}
 \implies R_{i n} &= \frac{1}{\frac{1}{10.87} - \frac{1}{1000}} = 10.99\ohm
 \end{align}
 %
-Because $R_L$ is not there in the circuit so we take it's value as $\infty$, so from equation \ref{eq:ee18btech11011_R_of} and \ref{eq:ee18btech11011_R_in_and_R_out} we know,
+Because $R_{L}$ is not there in the circuit so we take it's value as $\infty$, so from equation \ref{eq:ee18btech11011_R_of} and \ref{eq:ee18btech11011_R_in_and_R_out} we know,
 %
 \begin{align}
 R_{o f} &= \frac{R_{o}}{1+GH} = \frac{0.91}{82.9}
