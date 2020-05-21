@@ -1,0 +1,17 @@
+\begin{circuitikz}[american voltages]
+\ctikzset{bipoles/length=1cm}
+
+\draw 
+(0, 0) node[op amp] (opamp) {}
+(opamp.-) to [short , *-] (-0.6,0.35) to[R =$R_{s}$] (-2.6,0.35) to[V=$V_{s}$, i<_=$I_{s}$] (-2.6,-2.05) node[ground]{}
+(opamp.-) --(-0.85,1) to[R=$R_{F}$] (1,1) to [short, i>_=$I_{s}$, -*] (1,0) to [short, -o](2,0) node at(2.3,0){$V_{o}$}
+(opamp.out) to (1,0) 
+(opamp.+) -- (-0.85,-0.35) -- (-0.85,-1) node[ground]{};
+\draw
+node at (0,0){$\mu$}
+node at (-0.85,0.07){$V_{i n}$}
+node at (-2.2,0.7){$+$}
+node at (-1.1,0.7){$-$}
+node at (-1.55,0.7){$V_{f}$};
+\end{circuitikz}
+
