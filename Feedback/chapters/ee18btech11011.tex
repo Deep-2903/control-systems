@@ -7,7 +7,7 @@
 \begin{figure}[!ht]
 	\begin{center}
 		
-		\resizebox{\columnwidth}{!}{\input{.figs/ee18btech11011/original_circuit.tex}}
+		\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11011/original_circuit.tex}}
 	\end{center}
 \caption{}
 \label{fig:ee18btech11011_original_circuit}
@@ -18,7 +18,7 @@
 %
 \begin{figure}[!ht]
 	\begin{center}
-			\resizebox{\columnwidth}{!}{\input{.figs/ee18btech11011/Shunt_Shunt_Amplifier_Block_Diagram.tex}}
+			\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11011/Shunt_Shunt_Amplifier_Block_Diagram.tex}}
 	\end{center}
 \caption{Shunt Shunt Amplifier Block Diagram}
 \label{fig:Shunt_Shunt_Amplifier_Block_Diagram}
@@ -26,7 +26,7 @@
 %
 \begin{figure}[!ht]
 	\begin{center}
-			\resizebox{\columnwidth}{!}{\input{.figs/ee18btech11011/Norton_Representation.tex}}
+			\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11011/Norton_Representation.tex}}
 	\end{center}
 \caption{}
 \label{fig:ee18btech11011_Norton_Representation}
@@ -34,7 +34,7 @@
 %
 \begin{figure}[!ht]
 	\begin{center}
-			\resizebox{\columnwidth}{!}{\input{.figs/ee18btech11011/beta_circuit.tex}}
+			\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11011/beta_circuit.tex}}
 	\end{center}
 \caption{}
 \label{fig:ee18btech11011_beta_circuit}
@@ -42,7 +42,7 @@
 %
 \begin{figure}[!ht]
 	\begin{center}
-			\resizebox{\columnwidth}{!}{\input{.figs/ee18btech11011/A1_circuit.tex}}
+			\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11011/A1_circuit.tex}}
 	\end{center}
 \caption{}
 \label{fig:ee18btech11011_A1_circuit}
@@ -50,7 +50,7 @@
 %
 \begin{figure}[!ht]
 	\begin{center}
-			\resizebox{\columnwidth}{!}{\input{.figs/ee18btech11011/A2_circuit.tex}}
+			\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11011/A2_circuit.tex}}
 	\end{center}
 \caption{}
 \label{fig:ee18btech11011_A2_circuit}
@@ -83,14 +83,14 @@ R_{i n} &= \frac{1}{\frac{1}{R_{i f}} - \frac{1}{R_{s}}} , R_{o u t} = \frac{1}{
 
 \begin{table}[!ht]
 \centering
-\input{.tables/ee18btech11011/Parameters_Table.tex}
+\input{./tables/ee18btech11011/Parameters_Table.tex}
 \caption{}
 \label{table: Parameters_Table}
 \end{table}
 
 \begin{figure}[!ht]
 	\begin{center}
-			\resizebox{\columnwidth}{!}{\input{.figs/ee18btech11011/Block_Diagram.tex}}
+			\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11011/Block_Diagram.tex}}
 	\end{center}
 \caption{Block Diagram}
 \label{fig:Block Diagram}
@@ -208,7 +208,7 @@ codes/ee18btech11011/ee18btech11011_cal.ipynb
 %
 \begin{figure}[!ht]
 	\begin{center}
-			\resizebox{\columnwidth}{!}{\input{.figs/ee18btech11011/Inverting_configuration.tex}}
+			\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11011/Inverting_configuration.tex}}
 	\end{center}
 \caption{}
 \label{fig:ee18btech11011_Inverting_configuration}
@@ -254,7 +254,7 @@ Now, for "f" to be 3-dB frequency given condition should be match i.e.,:
 \end{align}
 \begin{table}[!ht]
 \centering
-\input{.tables/ee18btech11011Values_Table_for_Part_C.tex}
+\input{./tables/ee18btech11011/Values_Table_for_Part_C.tex}
 \caption{}
 \label{table: Values_Table}
 \end{table}
@@ -266,6 +266,39 @@ Now putting the appropriate values as given in Table\ref{table: Values_Table} we
      \\
      \implies f \approx 1.41MHz
 \end{align}
+
+\item Using ngspice verify the Closed-Loop Transfer function or $V_{o}/V_{s}$.
+
+\solution From \ref{eq:ee18btech11011_Value_of_Vo/Vs} we know that:
+
+\begin{align}
+    \frac{V_{o}}{V_{s}} &= -9.88V/V
+\end{align}
+
+So, to verify this use the following spice file.
+
+\begin{lstlisting}
+spice/ee18btech11011/ee18btech11011.net
+\end{lstlisting}
+
+and finally to get the Fig.\ref{fig:ee18btech11011_spice_result} use the following python code.
+
+\begin{lstlisting}
+spice/ee18btech11011/ee18btech11011_spice.py
+\end{lstlisting}
+
+Following are the instructions to run the spice file.
+\begin{lstlisting}
+spice/ee18btech11011/README.md
+\end{lstlisting}
+
+\begin{figure}[!ht]
+	\begin{center}
+			\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11011/ee18btech11011_spice_result.eps}}
+	\end{center}
+\caption{Spice Simulation Result}
+\label{fig:ee18btech11011_spice_result}
+\end{figure}
 
 \end{enumerate}
 
